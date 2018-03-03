@@ -94,6 +94,17 @@ class Query extends BaseQuery
         return $this;
     }
 
+    public function offset($offset)
+    {
+        if (is_int($offset)) {
+            $this->setQueryVar('offset', $offset);
+        } else {
+            throw new InvalidArgumentException();
+        }
+
+        return $this;
+    }
+
     public function orderBy($orderby = 'name', $order = 'ASC')
     {
         $this->setQueryVar('orderby', $orderby);
