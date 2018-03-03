@@ -35,6 +35,11 @@ abstract class Base extends Model
         return (int)$value;
     }
 
+    public function getSiteNameAttribute()
+    {
+        return get_blog_details($this->blog_id)->blogname;
+    }
+
     public function toggle(Closure $callback, array $parameters = [])
     {
         return static::toggleSite($this, $callback, $parameters);
