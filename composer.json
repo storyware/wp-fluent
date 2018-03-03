@@ -1,0 +1,30 @@
+{
+  "name": "wp-fluent",
+  "support": {
+    "issues": "https://github.com/storyware/wp-fluent/issues",
+    "source": "https://github.com/storyware/wp-fluent"
+  },
+  "authors": [
+    {
+      "name": "Storyware",
+      "email": "help@storyware.us"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.4",
+    "illuminate/support": "^5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "WPFluent\\Contracts\\": "contracts",
+      "WPFluent\\Option\\": "option",
+      "WPFluent\\PostType\\": "posttype",
+      "WPFluent\\Role\\": "role",
+      "WPFluent\\Site\\": "site",
+      "WPFluent\\Support\\": "support",
+      "WPFluent\\Taxonomy\\": "taxonomy",
+      "WPFluent\\User\\": "user"
+    }
+  },
+  "minimum-stability": "dev"
+}

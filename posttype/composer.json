@@ -1,0 +1,25 @@
+{
+  "name": "expresser/posttype",
+  "support": {
+    "issues": "https://github.com/expresser/posttype/issues",
+    "source": "https://github.com/expresser/posttype"
+  },
+  "authors": [
+    {
+      "name": "Graham Blevins",
+      "email": "hgblevins@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.4",
+    "expresser/contracts": "0.9.4",
+    "expresser/support": "0.9.4",
+    "expresser/taxonomy": "0.9.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Expresser\\PostType\\": ""
+    }
+  },
+  "minimum-stability": "dev"
+}
