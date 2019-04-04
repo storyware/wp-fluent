@@ -2,14 +2,13 @@
 
 namespace WPFluent\Support;
 
-use Themosis\Facades\Config;
-use Themosis\Foundation\ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
 class ModelRegistrationServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $models = Config::get('models');
+        $models = config('models');
 
         $this->registerModels($models['options']);
         $this->registerModels($models['roles']);
