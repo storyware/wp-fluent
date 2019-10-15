@@ -274,6 +274,6 @@ abstract class Base extends Model
 
     protected static function doPostTypeFilter($filter, $type, array $args = [])
     {
-        return static::doFilter(implode('/', [$type, $filter]), $args);
+        return static::doFilter(implode('/', [json_encode($type), json_encode($filter)]), $args);
     }
 }
