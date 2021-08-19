@@ -99,7 +99,7 @@ abstract class Fluent extends BaseFluent
 		return $value;
 	}
 
-    public function setAttribute($key, $value)
+    public function setAttribute($key = null, $value = null)
     {
         $key = $this->transformKey($key);
 
