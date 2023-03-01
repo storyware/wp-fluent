@@ -57,13 +57,9 @@ abstract class Base extends Model
 
     public static function getTaxonomy()
     {
-        static $taxonomy;
+        $term = new static;
 
-        if (is_null($taxonomy)) {
-            $term = new static;
-
-            $taxonomy = $term->taxonomy;
-        }
+        $taxonomy = $term->taxonomy;
 
         return $taxonomy;
     }

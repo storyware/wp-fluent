@@ -168,13 +168,9 @@ abstract class Base extends Model
 
     public static function getPostType()
     {
-        static $postType;
+        $post = new static;
 
-        if (is_null($postType)) {
-            $post = new static;
-
-            $postType = $post->post_type;
-        }
+        $postType = $post->post_type;
 
         return $postType;
     }
