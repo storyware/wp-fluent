@@ -2,6 +2,7 @@
 
 namespace WPFluent\Site;
 
+use Illuminate\Support\Str;
 use WPFluent\Support\Query as BaseQuery;
 use InvalidArgumentException;
 use WP_Site_Query;
@@ -228,7 +229,7 @@ class Query extends BaseQuery
 
     public function __call($method, array $parameters)
     {
-        if (str_is($method, 'public')) {
+        if (Str::is($method, 'public')) {
             $isPublic = array_shift($parameters);
 
             $isPublic = is_null($isPublic) ?: $isPublic;

@@ -3,6 +3,7 @@
 namespace WPFluent\PostType;
 
 use Closure;
+use Illuminate\Support\Str;
 use WPFluent\Support\Query as BaseQuery;
 use InvalidArgumentException;
 use WP_Query;
@@ -311,7 +312,7 @@ class Query extends BaseQuery
         if (is_int($count) && $count >= 0) {
             $this->setQueryVar('nopaging', false);
 
-            if (str_is($type, 'ARCHIVE')) {
+            if (Str::is($type, 'ARCHIVE')) {
                 $this->setQueryVar('posts_per_archive_page', $count);
             } else {
                 $this->setQueryVar('posts_per_page', $count);
@@ -322,7 +323,7 @@ class Query extends BaseQuery
 
                 $this->setQueryVar('offset', $offset);
             } else {
-                if (str_is($type, 'STATIC FRONT PAGE')) {
+                if (Str::is($type, 'STATIC FRONT PAGE')) {
                     $this->setQueryVar('page', $page);
                 } else {
                     $this->setQueryVar('paged', $page);

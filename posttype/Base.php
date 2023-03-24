@@ -3,6 +3,7 @@
 namespace WPFluent\PostType;
 
 use Exception;
+use Illuminate\Support\Str;
 use WPFluent\Support\Model;
 use WP_Post;
 use WP_Query;
@@ -206,7 +207,7 @@ abstract class Base extends Model
 
     public static function doGetPostThumbnailId($value, $id, $key = '_thumbnail_id', $single = true, $filter = true)
     {
-        if (str_is($key, '_thumbnail_id') && $single) {
+        if (Str::is($key, '_thumbnail_id') && $single) {
             remove_filter('get_post_metadata', [__CLASS__, 'doGetPostThumbnailId'], 10, 4);
 
             $value = get_post_thumbnail_id($id);

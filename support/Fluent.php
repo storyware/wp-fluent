@@ -2,6 +2,7 @@
 
 namespace WPFluent\Support;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Fluent as BaseFluent;
 
@@ -80,7 +81,7 @@ abstract class Fluent extends BaseFluent
 
     public function hasGetMutator($key)
     {
-        return method_exists($this, 'get'.studly_case($key).'Attribute');
+        return method_exists($this, 'get'.Str::studly($key).'Attribute');
     }
 
     public function mutateAttribute($key, $value)
@@ -89,7 +90,7 @@ abstract class Fluent extends BaseFluent
             return $this->accessorsCache[$key];
         }
         else {
-            $value = $this->{'get'.studly_case($key).'Attribute'}($value);
+            $value = $this->{'get'.Str::studly($key).'Attribute'}($value);
 
             if (in_array($key, $this->cacheableAccessors)) {
                 $this->accessorsCache[$key] = $value;
@@ -104,7 +105,7 @@ abstract class Fluent extends BaseFluent
         $key = $this->transformKey($key);
 
         if ($this->hasSetMutator($key)) {
-            $this->{'set'.studly_case($key).'Attribute'}($value);
+            $this->{'set'.Str::studly($key).'Attribute'}($value);
         } else {
             $this->attributes[$key] = $value;
         }
@@ -112,7 +113,7 @@ abstract class Fluent extends BaseFluent
 
     public function hasSetMutator($key)
     {
-        return method_exists($this, 'set'.studly_case($key).'Attribute');
+        return method_exists($this, 'set'.Str::studly($key).'Attribute');
     }
 
     public function newCollection($items = [])

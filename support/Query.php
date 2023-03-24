@@ -2,6 +2,7 @@
 
 namespace WPFluent\Support;
 
+use Illuminate\Support\Str;
 use InvalidArgumentException;
 use WPFluent\Contracts\Support\Queryable;
 
@@ -54,12 +55,12 @@ abstract class Query implements Queryable
 
     public function hasGetMutator($name)
     {
-        return method_exists($this, 'get'.studly_case($name).'QueryVar');
+        return method_exists($this, 'get'.Str::studly($name).'QueryVar');
     }
 
     public function mutateQueryVar($name, $value)
 	{
-        $value = $this->{'get'.studly_case($name).'QueryVar'}($value);
+        $value = $this->{'get'.Str::studly($name).'QueryVar'}($value);
 
 		return $value;
 	}
@@ -67,7 +68,7 @@ abstract class Query implements Queryable
     public function setQueryVar($name, $value)
     {
         if ($this->hasSetMutator($name)) {
-            $this->{'set'.studly_case($name).'QueryVar'}($value);
+            $this->{'set'.Str::studly($name).'QueryVar'}($value);
         } else {
             $this->query->query_vars[$name] = $value;
         }
@@ -77,7 +78,7 @@ abstract class Query implements Queryable
 
     public function hasSetMutator($name)
     {
-        return method_exists($this, 'set'.studly_case($name).'QueryVar');
+        return method_exists($this, 'set'.Str::studly($name).'QueryVar');
     }
 
     public function hasQueryVar($name)
