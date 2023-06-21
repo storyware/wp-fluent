@@ -217,7 +217,7 @@ abstract class Fluent extends BaseFluent
         if (function_exists($function) && has_filter($hook = implode('/', ['exp', $hook]))) {
             array_unshift($args, $hook);
 
-            return call_user_func_array($function, $args);
+            return call_user_func_array($function, array_values($args));
         }
 
         return array_shift($args);
